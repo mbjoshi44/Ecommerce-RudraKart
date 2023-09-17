@@ -1,6 +1,7 @@
 // Ragister.js
 import React, { useState } from 'react';
 import './rag.css'
+import { useNavigate } from 'react-router-dom';
 const Ragister = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -8,7 +9,7 @@ const Ragister = () => {
     password: '',
     confirmPassword: '',
   });
-
+  let navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     
@@ -26,7 +27,9 @@ const Ragister = () => {
       return
     }else{
     localStorage.setItem('user', JSON.stringify(formData));
-    // For this example, we'll simply log the form data.
+    // For this example, we'll simply log the form data.\
+    alert("Registration SuccesFul");
+    navigate("/login")
     console.log(formData);
     }
   };
@@ -79,7 +82,7 @@ const Ragister = () => {
             required
           />
         </div>
-        <button type="submit" className='rag-button btn btn-outline-dark'>Register</button>
+        <button type="submit" className='rag-button btn btn-outline-dark' >Register</button>
       </form>
     </div>
   );
