@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
@@ -39,12 +40,12 @@ const Products = () => {
   };
   useEffect(() => {
     checkCartStatus();
-  }, [cartData]);
+  },[cartData]); //eslint-disablw-next-line
 
   useEffect(() => {
     setLoader(true);
     getData(id);
-  }, [id]);
+  },[id]);//eslint-disablw-next-line
 
   const addToCartFn = (product) => {
     dispatch(setCartData(product));
@@ -57,6 +58,7 @@ const Products = () => {
     return () => {
       dispatch(deleteProducts());
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
