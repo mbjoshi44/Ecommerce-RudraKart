@@ -15,7 +15,7 @@ const Cart = () => {
     let count=0;
     let shippingCharge = 40
     for(let i = 0;i<cartData.length;i++){
-            count += cartData[i].price
+            count += Math.floor(cartData[i].price)
     }
      const naviFn =()=>{
             if(loginInfo ===true){
@@ -30,8 +30,8 @@ const Cart = () => {
      }
 
   return (
-    <div className='row'>
-    <div className='col-2'></div>
+    <div className=' container'>
+    
         <div className='col-5 my-5 '>
           <span className='fw-bold'>Total Cart Items :{cartData.length}</span>
       
@@ -52,7 +52,7 @@ const Cart = () => {
         ))
        }
         </div>
-        <div className="col-4 my-5 border">
+        <div className="col my-5 ">
         <h4>Price Details</h4>
         <div className='my-2'>Total Price:{count}
         </div>
