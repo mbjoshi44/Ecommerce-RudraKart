@@ -11,18 +11,20 @@ import Checkout from "./Components/Checkout";
 import Login from "./Components/Login"
 import Ragister from "./Components/Ragister";
 import Nav from "./pages/navbaar/Nav"
+import { useState } from "react";
 
 
 function App() {
+  const[search,setSearch] =useState("");
   return (
     <>
     <div className="container">
      <BrowserRouter>
-    <Header/>
+    <Header setSearch ={setSearch}/>
     
     <Nav/>
       <Routes>
-        <Route path="/" element ={<Home/>}/>
+        <Route path="/" element ={<Home search ={search}/>}/>
         <Route path='/category/:category' element={<Category />} />
         <Route path="/products/:id" element={<Products/>}/>
         <Route path="/cart" element={<Cart/>}/>

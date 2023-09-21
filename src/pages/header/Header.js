@@ -1,11 +1,9 @@
-import React ,{useState} from 'react'
+import React  from 'react'
 import { useSelector } from 'react-redux'
 import "./header.css"
 import {Link} from "react-router-dom"
-const Nav = () => {
+const Nav = ({setSearch}) => {
 
-    const[search,setSearch] =useState("");
-    console.log(search);
 
 const cartData = useSelector((state) => state.cart.cartList);
     return (
@@ -20,7 +18,7 @@ const cartData = useSelector((state) => state.cart.cartList);
             <form >
                 <input type="text"
                 placeholder='Search for ...' 
-                    onChange={(e)=>{setSearch(e.target.value)}}
+                     onChange={(e)=>{setSearch(e.target.value.toLowerCase())}}
                 />
                 
             </form>
