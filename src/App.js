@@ -25,7 +25,7 @@ function App() {
     <Nav/>
       <Routes>
         <Route path="/" element ={<Home search ={search}/>}/>
-        <Route path='/category/:category' element={<Category />} />
+        <Route path='/category/:category' element={<Category search ={search}/>} />
         <Route path="/products/:id" element={<Products/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/checkout" element={<Checkout/>}/>

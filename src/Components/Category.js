@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { useParams , Link} from 'react-router-dom'
 
-const Category = () => {
+const Category = ({search}) => {
   const temp = useParams()
   const{category} = temp
   const[loading,setLoading] = useState(false)
@@ -34,7 +34,10 @@ const Category = () => {
       <h2><img src='https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif' alt='loading'/></h2>
     </div>
   </>:
-  product && product?.map((product) => (
+  product && product?.filter((product)=>(
+          product.title.toLowerCase().includes(search)
+        ))
+  .map((product) => (
    <div className='col-md-3 mb-5 mt-5' key={product.id}>
    <Link to={`/products/${product.id}`} className=" nav-link" >
     <div className="card h-100 text-center">
