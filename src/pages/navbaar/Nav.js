@@ -8,45 +8,43 @@ const handleBurger =()=>{
     setClicked(!clicked)
 }
  const cartData = useSelector((state) => state.cart.cartList);
+ const chanMenu=() =>{
+    if(clicked === true)
+     setClicked(false)
+ }
     return (
     <>
         <nav className='main-nav'>
-        {/* <Link className='nav-link' to="/">
-            <div className="logo">
-            <h3>    <span>R</span>udra
-                <span>K</span>art
-                </h3>    
-            </div></Link> */}
-            {/* for Menu */}
+
             <div >
                 <ul className={clicked?  "menu-link active":"menu-link"}>
-                <Link className='nav-link' to="/category/electronics"> <li>
+                <Link className='nav-link' onClick={chanMenu} to="/category/electronics"> <li>
                    Electronics
                     </li></Link>
-                    <Link className='nav-link' to="/category/jewelery">          <li >
+                    <Link className='nav-link' onClick={chanMenu} to="/category/jewelery"><li >
           Jewellery
          </li></Link>
-         <Link className='nav-link' to="/category/men's clothing"><li>
+         <Link className='nav-link' onClick={chanMenu} to="/category/men's clothing"><li>
           Men's clothing
         </li></Link>
-        <Link className='nav-link' to="/category/women's clothing"><li >
+        <Link className='nav-link' onClick={chanMenu} to="/category/women's clothing"><li >
            Women's clothing
          </li></Link>
 
     
     
     <span className='mobile'>     <li >
-    <Link to="/login" className='nav-link'>
+    <Link to="/login" onClick={chanMenu} className='nav-link'>
     <i className="fa fa-user"></i>Login 
         </Link>
     </li>
     <li className='nav-item' >
-    <Link to="/ragister" className='nav-link'>
+    <Link to="/ragister" onClick={chanMenu} className='nav-link'>
         <i className="fa fa-user-plus"></i>Ragistration 
         </Link>
     </li>
     <li className='nav-item' >
-    <Link to="/cart" className='nav-link'>
+    <Link to="/cart" className='nav-link' onClick={chanMenu}>
         <i className="fa fa-shopping-cart"></i>Cart ({cartData.length>0 ?<span >{cartData.length}</span>:0})
         </Link>
     </li>
