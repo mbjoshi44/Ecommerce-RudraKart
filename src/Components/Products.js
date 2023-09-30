@@ -7,6 +7,8 @@ import {
   deleteProducts,
 } from "../redux/action/productAction";
 import { setCartData } from "../redux/action/cartAction";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Products = () => {
   const [cartStatus, setCartStatus] = useState(false);
@@ -112,13 +114,17 @@ const Products = () => {
           </>
         ) : (
           <>
-            <div className="col-12">
-              <h2>
-                <img
-                  src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif"
-                  alt="loading"
-                />
-              </h2>
+            <div className="col-md-6">
+              <Skeleton height={400}/>
+            </div>
+            <div className="col-md-6" style={{lineHeight:2}}>
+              <Skeleton height={50} width={300}/>
+              <Skeleton height={75} />
+              <Skeleton height={25}  width ={150}/>
+              <Skeleton height={50}  width={200}/>
+              <Skeleton height={150} /> 
+              {/* <Skeleton height={50} width={100}/> 
+              <Skeleton height={50} width={100} style={{marginLeft:6}}  />  */}
             </div>
           </>
         )}

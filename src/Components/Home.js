@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { setProduct } from '../redux/action/productAction'
 import { Link } from "react-router-dom"
+import Skelton from './Skelton'
+
 
 const Home = ({search}) => {
   
@@ -24,19 +26,24 @@ const Home = ({search}) => {
   
   return (
   <div className='row'>
-
+         
    
       {
         loading? <>
-        <div className='col-12'>
-            <h2><img src='https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif' alt='loading'/></h2>
+        <div className=''>
+
+        <Skelton/>
+        <Skelton/>
+
+            {/* <h2><img src='https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif' alt='loading'/></h2> */}
+          
           </div>
         </>:
         products && products?.filter((product)=>(
           product.title.toLowerCase().includes(search)
         ))
         .map((product) => (
-         <div className='col-md-3 mb-5 mt-5' key={product.id}>
+         <div className='col-md-3 mb- mt-5' key={product.id}>
          <Link to={`/products/${product.id}`} className=" nav-link" >
           <div className="card h-100 text-center">
           <img src={product.image} alt={product.title} className="card-img-top" height='250px' />

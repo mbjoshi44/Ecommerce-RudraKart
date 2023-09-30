@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import { useParams , Link} from 'react-router-dom'
+import Skelton from './Skelton'
 
 const Category = ({search}) => {
   const temp = useParams()
@@ -31,7 +32,10 @@ const Category = ({search}) => {
 {
   loading? <>
   <div className='col-12'>
-      <h2><img src='https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif' alt='loading'/></h2>
+      {/* <h2><img src='https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif' alt='loading'/></h2>
+       */}
+       <Skelton/>
+       <Skelton/>
     </div>
   </>:
   product && product?.filter((product)=>(
