@@ -6,6 +6,8 @@ const Nav = ({setSearch}) => {
 
 
 const cartData = useSelector((state) => state.cart.cartList);
+
+
     return (
     <>
         <nav className='main-nav'>
@@ -15,13 +17,14 @@ const cartData = useSelector((state) => state.cart.cartList);
                 <span>K</span>art
                 </h4>    
             </div></Link>
-            <form >
+            
                 <input type="text"
+                className='w-50'
                 placeholder='Search for ...' 
                      onChange={(e)=>{setSearch(e.target.value.toLowerCase())}}
                 />
                 
-            </form>
+
             {/* for Menu */}
             <div >
                 <ul className="menu-link">
